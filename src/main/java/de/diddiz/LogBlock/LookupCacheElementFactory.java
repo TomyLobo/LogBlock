@@ -7,8 +7,8 @@ import de.diddiz.LogBlock.QueryParams.SummarizationMode;
 
 public class LookupCacheElementFactory
 {
-	private final QueryParams params;
-	private final float spaceFactor;
+	protected final QueryParams params;
+	protected final float spaceFactor;
 
 	public LookupCacheElementFactory(QueryParams params, float spaceFactor) {
 		this.params = params;

@@ -420,7 +420,7 @@ public class CommandsHandler implements CommandExecutor
 				if (rs.next()) {
 					rs.beforeFirst();
 					final List<LookupCacheElement> blockchanges = new ArrayList<LookupCacheElement>();
-					final LookupCacheElementFactory factory = new LookupCacheElementFactory(params, sender instanceof Player ? 2 / 3f : 1);
+					final LookupCacheElementFactory factory = logblock.getLookupCacheElementFactoryFactory().create(params, sender instanceof Player ? 2 / 3f : 1);
 					while (rs.next())
 						blockchanges.add(factory.getLookupCacheElement(rs));
 					getSession(sender).lookupCache = blockchanges.toArray(new LookupCacheElement[blockchanges.size()]);
@@ -486,7 +486,7 @@ public class CommandsHandler implements CommandExecutor
 				int counter = 0;
 				if (params.sum != SummarizationMode.NONE)
 					writer.write("Created - Destroyed - " + (params.sum == SummarizationMode.TYPES ? "Block" : "Player") + newline);
-				final LookupCacheElementFactory factory = new LookupCacheElementFactory(params, sender instanceof Player ? 2 / 3f : 1);
+				final LookupCacheElementFactory factory = logblock.getLookupCacheElementFactoryFactory().create(params, sender instanceof Player ? 2 / 3f : 1);
 				while (rs.next()) {
 					writer.write(factory.getLookupCacheElement(rs).getMessage() + newline);
 					counter++;

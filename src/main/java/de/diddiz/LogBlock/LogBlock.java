@@ -56,6 +56,7 @@ public class LogBlock extends JavaPlugin
 	private Updater updater = null;
 	private Timer timer = null;
 	private boolean errorAtLoading = false, noDb = false, connected = true;
+	private LookupCacheElementFactoryFactory lookupCacheElementFactoryFactory = new LookupCacheElementFactoryFactory();
 
 	public static LogBlock getInstance() {
 		return logblock;
@@ -71,6 +72,14 @@ public class LogBlock extends JavaPlugin
 
 	Updater getUpdater() {
 		return updater;
+	}
+
+	public LookupCacheElementFactoryFactory getLookupCacheElementFactoryFactory() {
+		return lookupCacheElementFactoryFactory;
+	}
+
+	public void setLookupCacheElementFactoryFactory(LookupCacheElementFactoryFactory lookupCacheElementFactoryFactory) {
+		this.lookupCacheElementFactoryFactory = lookupCacheElementFactoryFactory;
 	}
 
 	@Override
