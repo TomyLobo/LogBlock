@@ -7,7 +7,7 @@ import java.sql.SQLException;
 import org.bukkit.Location;
 import de.diddiz.LogBlock.QueryParams.SummarizationMode;
 
-public class SummedBlockChanges implements LookupCacheElement
+public class SummedBlockChanges extends AbstractLookupCacheElement
 {
 	private final String group;
 	private final int created, destroyed;
