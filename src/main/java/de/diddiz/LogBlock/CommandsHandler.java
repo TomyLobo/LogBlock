@@ -5,6 +5,7 @@ import de.diddiz.LogBlock.QueryParams.Order;
 import de.diddiz.LogBlock.QueryParams.SummarizationMode;
 import de.diddiz.LogBlock.config.Config;
 import de.diddiz.LogBlock.config.WorldConfig;
+import de.diddiz.LogBlock.html.MessageHelper;
 import de.diddiz.LogBlockQuestioner.LogBlockQuestioner;
 import de.diddiz.util.Block;
 import org.bukkit.ChatColor;
@@ -325,7 +326,7 @@ public class CommandsHandler implements CommandExecutor
 				if (numberOfPages != 1)
 					sender.sendMessage(ChatColor.DARK_AQUA + "Page " + page + "/" + numberOfPages);
 				for (int i = startpos; i <= stoppos; i++)
-					sender.sendMessage(ChatColor.GOLD + (session.lookupCache[i].getLocation() != null ? "(" + (i + 1) + ") " : "") + session.lookupCache[i].getMessage());
+					MessageHelper.sendMessage(sender, String.format(session.lookupCache[i].getLocation() != null ? "<color name=\"gold\">(%1$d) %2$s</color>" : "<color name=\"gold\">%2$s</color>", i + 1, session.lookupCache[i].getXmlMessage()));
 				session.page = page;
 			} else
 				sender.sendMessage(ChatColor.RED + "There isn't a page '" + page + "'");
