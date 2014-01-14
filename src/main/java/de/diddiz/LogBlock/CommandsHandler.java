@@ -323,8 +323,16 @@ public class CommandsHandler implements CommandExecutor
 			if (page > 0 && startpos <= session.lookupCache.length - 1) {
 				final int stoppos = startpos + linesPerPage >= session.lookupCache.length ? session.lookupCache.length - 1 : startpos + linesPerPage - 1;
 				final int numberOfPages = (int)Math.ceil(session.lookupCache.length / (double)linesPerPage);
-				if (numberOfPages != 1)
-					sender.sendMessage(ChatColor.DARK_AQUA + "Page " + page + "/" + numberOfPages);
+				if (numberOfPages != 1) {
+					String format = "<color name=\"dark_aqua\">Page %1$d/%2$d</color>";
+					if (page > 1) {
+						format += " " + MessageHelper.button("/lb prev", "<", "blue", true);
+					}
+					if (page < numberOfPages) {
+						format += " " + MessageHelper.button("/lb next", ">", "blue", true);
+					}
+					MessageHelper.sendMessage(sender, String.format(format, page, numberOfPages));
+				}
 				for (int i = startpos; i <= stoppos; i++)
 					MessageHelper.sendMessage(sender, String.format(session.lookupCache[i].getLocation() != null ? "<color name=\"gold\">(%1$d) %2$s</color>" : "<color name=\"gold\">%2$s</color>", i + 1, session.lookupCache[i].getXmlMessage()));
 				session.page = page;
