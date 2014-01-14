@@ -7,7 +7,7 @@ import org.bukkit.inventory.ItemStack;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
-public class Kill implements LookupCacheElement {
+public class Kill extends AbstractLookupCacheElement {
     final long id, date;
     public final Location loc;
     final String killerName, victimName;

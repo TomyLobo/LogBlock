@@ -11,7 +11,7 @@ import java.sql.SQLException;
 import static de.diddiz.util.LoggingUtil.checkText;
 import static de.diddiz.util.MaterialName.materialName;
 
-public class BlockChange implements LookupCacheElement {
+public class BlockChange extends AbstractLookupCacheElement {
     public final long id, date;
     public final Location loc;
     public final Actor actor;

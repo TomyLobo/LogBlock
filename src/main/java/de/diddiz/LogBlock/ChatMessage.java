@@ -7,7 +7,7 @@ import java.sql.SQLException;
 
 import static de.diddiz.util.LoggingUtil.checkText;
 
-public class ChatMessage implements LookupCacheElement {
+public class ChatMessage extends AbstractLookupCacheElement {
     final long id, date;
     final String playerName, message;
     final Actor player;

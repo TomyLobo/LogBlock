@@ -7,7 +7,7 @@ import java.sql.SQLException;
 
 import static de.diddiz.util.Utils.spaces;
 
-public class SummedKills implements LookupCacheElement {
+public class SummedKills extends AbstractLookupCacheElement {
     private final Actor player;
     private final int kills, killed;
     private final float spaceFactor;

@@ -449,3 +449,4 @@ public class BukkitUtils {
         return (i == null) ? 0 : i;
     }
 }
+
