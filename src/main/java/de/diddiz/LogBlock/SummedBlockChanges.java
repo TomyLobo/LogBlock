@@ -4,6 +4,8 @@ import static de.diddiz.util.MaterialName.materialName;
 import static de.diddiz.util.Utils.spaces;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+
+import de.diddiz.LogBlock.html.Parser;
 import org.bukkit.Location;
 import de.diddiz.LogBlock.QueryParams.SummarizationMode;
 
@@ -28,5 +30,14 @@ public class SummedBlockChanges extends AbstractLookupCacheElement
 	@Override
 	public String getMessage() {
 		return created + spaces((int)((10 - String.valueOf(created).length()) / spaceFactor)) + destroyed + spaces((int)((10 - String.valueOf(destroyed).length()) / spaceFactor)) + group;
+	}
+
+	@Override
+	public String getXmlMessage() {
+		if (created < destroyed) {
+			return String.format("<color name=\"red\">%1$s</color>", Parser.escape(getMessage()));
+		}
+
+		return super.getXmlMessage();
 	}
 }
