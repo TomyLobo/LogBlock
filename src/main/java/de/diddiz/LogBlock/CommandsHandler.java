@@ -334,7 +334,7 @@ public class CommandsHandler implements CommandExecutor
 					MessageHelper.sendMessage(sender, String.format(format, page, numberOfPages));
 				}
 				for (int i = startpos; i <= stoppos; i++)
-					MessageHelper.sendMessage(sender, String.format(session.lookupCache[i].getLocation() != null ? "<color name=\"gold\" onClick=\"run_command('/lb tp %1$d')\" onHover=\"show_text('/lb tp %1$d')\">%2$s</color>" : "<color name=\"gold\">%2$s</color>", i + 1, session.lookupCache[i].getXmlMessage()));
+					MessageHelper.sendMessage(sender, String.format(session.lookupCache[i].getLocation() != null ? "<color name=\"gold\" onClick=\"run_command('/lb tp %1$d')\" onHover=\"show_text('Click to run\n&lt;color name=&quot;blue&quot;>/lb tp %1$d&lt;/color>')\">%2$s</color>" : "<color name=\"gold\">%2$s</color>", i + 1, session.lookupCache[i].getXmlMessage()));
 				session.page = page;
 			} else
 				sender.sendMessage(ChatColor.RED + "There isn't a page '" + page + "'");
