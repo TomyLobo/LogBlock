@@ -9,13 +9,13 @@ import de.diddiz.LogBlock.html.tags.S;
 import de.diddiz.LogBlock.html.tags.Span;
 import de.diddiz.LogBlock.html.tags.Tr;
 import de.diddiz.LogBlock.html.tags.U;
-import net.minecraft.server.v1_7_R1.ChatBaseComponent;
-import net.minecraft.server.v1_7_R1.ChatClickable;
-import net.minecraft.server.v1_7_R1.ChatHoverable;
-import net.minecraft.server.v1_7_R1.ChatModifier;
-import net.minecraft.server.v1_7_R1.EnumClickAction;
-import net.minecraft.server.v1_7_R1.EnumHoverAction;
-import net.minecraft.server.v1_7_R1.IChatBaseComponent;
+import net.minecraft.server.v1_7_R3.ChatBaseComponent;
+import net.minecraft.server.v1_7_R3.ChatClickable;
+import net.minecraft.server.v1_7_R3.ChatHoverable;
+import net.minecraft.server.v1_7_R3.ChatModifier;
+import net.minecraft.server.v1_7_R3.EnumClickAction;
+import net.minecraft.server.v1_7_R3.EnumHoverAction;
+import net.minecraft.server.v1_7_R3.IChatBaseComponent;
 
 import javax.xml.bind.JAXBException;
 import javax.xml.bind.annotation.XmlAttribute;
@@ -68,7 +68,7 @@ public abstract class Element {
 				throw new RuntimeException("Unknown click action "+eventType);
 			}
 
-			style.a(new ChatClickable(enumClickAction, eventString));
+			style.setChatClickable(new ChatClickable(enumClickAction, eventString));
 		}
 
 		if (onHover != null) {

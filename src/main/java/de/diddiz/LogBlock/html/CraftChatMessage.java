@@ -2,12 +2,12 @@ package de.diddiz.LogBlock.html;
 
 import com.google.common.collect.ImmutableMap;
 import com.google.common.collect.ImmutableMap.Builder;
-import net.minecraft.server.v1_7_R1.ChatClickable;
-import net.minecraft.server.v1_7_R1.ChatComponentText;
-import net.minecraft.server.v1_7_R1.ChatModifier;
-import net.minecraft.server.v1_7_R1.EnumChatFormat;
-import net.minecraft.server.v1_7_R1.EnumClickAction;
-import net.minecraft.server.v1_7_R1.IChatBaseComponent;
+import net.minecraft.server.v1_7_R3.ChatClickable;
+import net.minecraft.server.v1_7_R3.ChatComponentText;
+import net.minecraft.server.v1_7_R3.ChatModifier;
+import net.minecraft.server.v1_7_R3.EnumChatFormat;
+import net.minecraft.server.v1_7_R3.EnumClickAction;
+import net.minecraft.server.v1_7_R3.IChatBaseComponent;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -125,9 +125,9 @@ public final class CraftChatMessage {
 				builder.append(fullUrl);
 				ChatClickable link = new ChatClickable(EnumClickAction.OPEN_URL,
 						(protocol!=null?protocol:"http") + "://" + url + (path!=null?path:""));
-				modifier.a(link);
+				modifier.setChatClickable(link);
 				appendNewComponent();
-				modifier.a((ChatClickable) null);
+				modifier.setChatClickable(null);
 				if (!newWord) { //Force new word to prevent double checking
 					lastWord = i + 1;
 				}
