@@ -1,8 +1,8 @@
 package de.diddiz.LogBlock.html.tags;
 
 import de.diddiz.LogBlock.html.Element;
-import net.minecraft.server.v1_7_R3.ChatModifier;
-import net.minecraft.server.v1_7_R3.EnumChatFormat;
+import net.minecraft.server.v1_7_R4.ChatModifier;
+import net.minecraft.server.v1_7_R4.EnumChatFormat;
 
 import javax.xml.bind.annotation.XmlAttribute;
 import javax.xml.bind.annotation.XmlRootElement;
