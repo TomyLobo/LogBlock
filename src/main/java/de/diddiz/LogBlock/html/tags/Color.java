@@ -1,8 +1,8 @@
 package de.diddiz.LogBlock.html.tags;
 
 import de.diddiz.LogBlock.html.Element;
-import net.minecraft.server.v1_7_R4.ChatModifier;
-import net.minecraft.server.v1_7_R4.EnumChatFormat;
+import net.minecraft.server.v1_8_R1.ChatModifier;
+import net.minecraft.server.v1_8_R1.EnumChatFormat;
 
 import javax.xml.bind.annotation.XmlAttribute;
 import javax.xml.bind.annotation.XmlRootElement;
@@ -35,7 +35,7 @@ public class Color extends Element {
 				continue;
 			}
 
-			if (enumChatFormat.getChar() != id.charAt(0)) {
+			if (enumChatFormat.z != id.charAt(0)) {
 				continue;
 			}
 

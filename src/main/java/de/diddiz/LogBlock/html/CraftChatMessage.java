@@ -2,12 +2,12 @@ package de.diddiz.LogBlock.html;
 
 import com.google.common.collect.ImmutableMap;
 import com.google.common.collect.ImmutableMap.Builder;
-import net.minecraft.server.v1_7_R4.ChatClickable;
-import net.minecraft.server.v1_7_R4.ChatComponentText;
-import net.minecraft.server.v1_7_R4.ChatModifier;
-import net.minecraft.server.v1_7_R4.EnumChatFormat;
-import net.minecraft.server.v1_7_R4.EnumClickAction;
-import net.minecraft.server.v1_7_R4.IChatBaseComponent;
+import net.minecraft.server.v1_8_R1.ChatClickable;
+import net.minecraft.server.v1_8_R1.ChatComponentText;
+import net.minecraft.server.v1_8_R1.ChatModifier;
+import net.minecraft.server.v1_8_R1.EnumChatFormat;
+import net.minecraft.server.v1_8_R1.EnumClickAction;
+import net.minecraft.server.v1_8_R1.IChatBaseComponent;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -22,7 +22,7 @@ public final class CraftChatMessage {
 		static {
 			Builder<Character, EnumChatFormat> builder = ImmutableMap.builder();
 			for (EnumChatFormat format : EnumChatFormat.values()) {
-				builder.put(format.getChar(), format);
+				builder.put(format.z, format);
 			}
 			formatMap = builder.build();
 		}
@@ -76,7 +76,7 @@ public final class CraftChatMessage {
 						case UNDERLINE:
 							modifier.setUnderline(Boolean.TRUE);
 							break;
-						case RANDOM:
+						case OBFUSCATED:
 							modifier.setRandom(Boolean.TRUE);
 							break;
 						default:
