@@ -2,12 +2,12 @@ package de.diddiz.LogBlock.html;
 
 import com.google.common.collect.ImmutableMap;
 import com.google.common.collect.ImmutableMap.Builder;
-import net.minecraft.server.v1_7_R1.ChatClickable;
-import net.minecraft.server.v1_7_R1.ChatComponentText;
-import net.minecraft.server.v1_7_R1.ChatModifier;
-import net.minecraft.server.v1_7_R1.EnumChatFormat;
-import net.minecraft.server.v1_7_R1.EnumClickAction;
-import net.minecraft.server.v1_7_R1.IChatBaseComponent;
+import net.minecraft.server.v1_8_R1.ChatClickable;
+import net.minecraft.server.v1_8_R1.ChatComponentText;
+import net.minecraft.server.v1_8_R1.ChatModifier;
+import net.minecraft.server.v1_8_R1.EnumChatFormat;
+import net.minecraft.server.v1_8_R1.EnumClickAction;
+import net.minecraft.server.v1_8_R1.IChatBaseComponent;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -22,7 +22,7 @@ public final class CraftChatMessage {
 		static {
 			Builder<Character, EnumChatFormat> builder = ImmutableMap.builder();
 			for (EnumChatFormat format : EnumChatFormat.values()) {
-				builder.put(format.getChar(), format);
+				builder.put(format.z, format);
 			}
 			formatMap = builder.build();
 		}
@@ -76,7 +76,7 @@ public final class CraftChatMessage {
 						case UNDERLINE:
 							modifier.setUnderline(Boolean.TRUE);
 							break;
-						case RANDOM:
+						case OBFUSCATED:
 							modifier.setRandom(Boolean.TRUE);
 							break;
 						default:
@@ -125,9 +125,9 @@ public final class CraftChatMessage {
 				builder.append(fullUrl);
 				ChatClickable link = new ChatClickable(EnumClickAction.OPEN_URL,
 						(protocol!=null?protocol:"http") + "://" + url + (path!=null?path:""));
-				modifier.a(link);
+				modifier.setChatClickable(link);
 				appendNewComponent();
-				modifier.a((ChatClickable) null);
+				modifier.setChatClickable(null);
 				if (!newWord) { //Force new word to prevent double checking
 					lastWord = i + 1;
 				}
@@ -146,7 +146,7 @@ public final class CraftChatMessage {
 				currentChatComponent = new ChatComponentText("");
 				list.add(currentChatComponent);
 			}
-			currentChatComponent.a(addition);
+			currentChatComponent.addSibling(addition);
 		}
 
 		private IChatBaseComponent[] getOutput() {
